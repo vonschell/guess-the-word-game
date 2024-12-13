@@ -27,3 +27,16 @@ guessButton.addEventListener("click", function (e) {
     console.log(guess);
     letterInput.value = "";
 });
+
+const validateInput = function (input) {
+    const acceptedLetter = /[a-zA-Z]/;
+    if (input.length === 0) {
+        mrssage.innerText = "It is time to enter a letter.";
+    } else if (input.length > 1) {
+        messages.innerText = "Only enter a single letter please.";
+    } else if (!input.match(acceptedLetter)) {
+        messages.innerText = "Only enter a letter from a to z please."
+    } else {
+        return input;
+    }
+};
