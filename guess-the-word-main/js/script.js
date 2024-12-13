@@ -8,3 +8,15 @@ const messages = document.querySelector (".message");
 const playAgainButton = document.querySelector (".play-again");
 
 const word = "magnolia";
+
+//Displaying the symbols as placeholders for the selected word's letters.
+const placeholders = function (word) {
+    const placeholdersLetters = [];
+    for (const letter of word) {
+        console.log(letter);
+        placeholdersLetters.push("●");
+    }
+    wordInProgress.innerText = placeholdersLetters.join("");
+};
+
+placeholders(word);
