@@ -56,6 +56,7 @@ guessButton.addEventListener("click", function (e) {
     } else {
       guessedLetters.push(guess);
       console.log(guessedLetters);
+      updateRemainingGuesses(guess);
       showGuessedLetters();
       updateWorkInProgress(guessedLetters);
     }
@@ -94,7 +95,15 @@ guessButton.addEventListener("click", function (e) {
     } else {
         messages.innerText = `Wonderful guess! This word has the letter ${guess}.`;
     }
-  }
+
+    if (remainingGuesses === 0) {
+        messages.innerHTML = `GAME OVER! The correct word was <span class="highlight">${word}</span>.`;
+    } else if (remainingGuesses === 1) {
+        remainingGuessesSpan.innerText = `${remainingGuesses} guess left`;
+    } else {
+        remainingGuessesSpan.innerText = `${remainingGuesses} guesses left`;
+    }
+  };
 
   const winnerCheck = function () {
     if (word.toUpperCase() === wordInProgress.innerText) {
