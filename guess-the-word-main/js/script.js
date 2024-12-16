@@ -109,9 +109,9 @@ guessButton.addEventListener("click", function (e) {
         messages.innerHTML = `GAME OVER! The correct word was <span class="highlight">${word}</span>.`;
         startOver();
     } else if (remainingGuesses === 1) {
-        remainingGuessesSpan.innerText = `${remainingGuesses} guess left`;
+        remainingGuessesSpan.innerText = `${remainingGuesses} guess`;
     } else {
-        remainingGuessesSpan.innerText = `${remainingGuesses} guesses left`;
+        remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
     }
   };
 
@@ -135,7 +135,7 @@ guessButton.addEventListener("click", function (e) {
     messages.classList.remove("win");
     guessedLetters = [];
     remainingGuesses = 8;
-    remainingGuessesSpan.innerText = `${remainingGuesses} guesses left`;
+    remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
     guessedLettersElement.innerHTML = "";
     messages.innerText = "";
 
