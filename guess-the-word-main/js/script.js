@@ -122,3 +122,10 @@ guessButton.addEventListener("click", function (e) {
         messages.innerHTML = `<p class="highlight"> You guessed the correct word! Congrats!</p>`;
     }
   };
+
+  const startOver = function () {
+    guessButton.classList.add("hide");
+    remainingGuessesElement.classList.add("hide");
+    guessedLettersElement.classList.add("hide");
+    playAgainButton.classList.remove("hide");
+  }
