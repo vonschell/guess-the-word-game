@@ -7,8 +7,9 @@ const remainingGuessesSpan = document.querySelector(".remaining span");
 const messages = document.querySelector(".message");
 const playAgainButton = document.querySelector(".play-again");
 
-const word = "magnolia";
+let word = "magnolia";
 const guessedLetters = [];
+let remainingGuesses = 8;
 
 //Displaying the symbols as placeholders for the selected word's letters
 const placeholders = function (word) {
@@ -84,6 +85,16 @@ guessButton.addEventListener("click", function (e) {
     wordInProgress.innerText = letterReveal.join("");
     winnerCheck();
   };
+
+  const updateRemainingGuesses = function (guess) {
+    const upperWord = word.toUpperCase();
+    if (!upperWord.includes(guess)) {
+        messages.innerText = `OOPS! The word has no ${guess} sorry.`;
+        remainingGuesses -=1;
+    } else {
+        messages.innerText = `Wonderful guess! This word has the letter ${guess}.`;
+    }
+  }
 
   const winnerCheck = function () {
     if (word.toUpperCase() === wordInProgress.innerText) {
