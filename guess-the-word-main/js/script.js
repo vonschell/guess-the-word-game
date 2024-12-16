@@ -40,3 +40,5 @@ const validateInput = function (input) {
         return input;
     }
 };
+
+const upToDate = "yes"; 
