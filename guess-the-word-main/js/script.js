@@ -82,4 +82,12 @@ guessButton.addEventListener("click", function (e) {
     }
     // console.log(letterReveal);
     wordInProgress.innerText = letterReveal.join("");
+    winnerCheck();
+  };
+
+  const winnerCheck = function () {
+    if (word.toUpperCase() === wordInProgress.innerText) {
+        messages.classList.add("win");
+        messages.innerHTML = `<p class="highlight"> You guessed the correct word! Congrats!</p>`;
+    }
   };
