@@ -10,7 +10,7 @@ const playAgainButton = document.querySelector(".play-again");
 const word = "magnolia";
 const guessedLetters = [];
 
-//Displaying the symbols as placeholders for the selected word's letters.
+//Displaying the symbols as placeholders for the selected word's letters
 const placeholders = function (word) {
     const placeholdersLetters = [];
     for (const letter of word) {
@@ -51,10 +51,20 @@ guessButton.addEventListener("click", function (e) {
   const makeGuess = function (guess) {
     guess = guess.toUpperCase();
     if (guessedLetters.includes(guess)) {
-      message.innerText = "You already guessed that letter, silly. Try again.";
+      messages.innerText = "You already guessed that letter, silly. Try again.";
     } else {
       guessedLetters.push(guess);
       console.log(guessedLetters);
+      showGuessedLetters();
+    }
+  };
+
+  const showGuessedLetters = function () {
+    guessedLettersElement.innerHTML = "";
+    for (const letter of guessedLetters) {
+        const li = document.createElement("li");
+        li.innerText = letter;
+        guessedLettersElement.append(li);
     }
   };
   
