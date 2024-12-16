@@ -107,6 +107,7 @@ guessButton.addEventListener("click", function (e) {
 
     if (remainingGuesses === 0) {
         messages.innerHTML = `GAME OVER! The correct word was <span class="highlight">${word}</span>.`;
+        startOver();
     } else if (remainingGuesses === 1) {
         remainingGuessesSpan.innerText = `${remainingGuesses} guess left`;
     } else {
